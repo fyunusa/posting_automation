@@ -1,0 +1,34 @@
+{
+    "Shaykh": [
+        {
+            "Shaykh Muhammad Bn Uthmann" : "Shaykh Muhammad Bin Uthman (Kano)" ,
+            "Shaykh Muhamad Bin Uthman" : "Shaykh Muhammad Bin Uthman (Kano)",
+           "Shaykh Muhammad Bn Uthman" : "Shaykh Muhammad Bin Uthman (Kano)",
+           "Shaykh Muhammad ibn Uthmann" : "Shaykh Muhammad Bin Uthman (Kano)",
+           "":  "",
+           "Shaykh Qamarudeen Yunus": "Shaykh Qamarudeen Yunus",
+           "Shaykh Qamarudeen Yunusa": "Shaykh Qamarudeen Yunus",
+           "Shaykh Qamaruden Yunus": "Shaykh Qamarudeen Yunus",
+           "Shaykh kamarudeen Yunus": "Shaykh Qamarudeen Yunus",
+           "": ""
+          
+        }
+    ],
+    "Dr": [
+        {
+            "Dr Muhammad Baba Assudany" : "Dr Muhammad Baba (Kaduna)",
+            "Dr Muhammad Baba Asudany" : "Dr Muhammad Baba (Kaduna)",
+            "Dr Muhammad Baba Assudani" : "Dr Muhammad Baba (Kaduna)"
+        }
+    ],
+    "Ustadh" : [
+        {
+            "Ustadh Abdulfattah Sarumi (Ilorin)" : "Ustadh Abdulfattah Sarumi (Ilorin)",
+            "Ustadh Abdulfattah Sarumi" : "Ustadh Abdulfattah Sarumi (Ilorin)",
+            "Ustadh Abdulfatah Sarumi" : "Ustadh Abdulfattah Sarumi (Ilorin)",
+            "Ustadh Abdulfattah Sarrumi" : "Ustadh Abdulfattah Sarumi (Ilorin)"
+        }
+    ]
+}
+
+

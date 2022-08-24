@@ -1,0 +1,24 @@
+[
+    {
+        "audio": [
+            "audio-chunks",
+            "audio-examples",
+            "multiple_transcribe",
+            "pocketsphinx-python"
+        ]
+    },
+    {
+        "modules": [
+            "chartman",
+            "chartman2",
+            "dblogger",
+            "ncdc",
+            "newchartman",
+            "sormas",
+            "variable_delete"
+        ]
+    },
+    {
+        "posting1": []
+    }
+]
