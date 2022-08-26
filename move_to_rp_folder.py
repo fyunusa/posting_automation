@@ -189,8 +189,8 @@ def load_json_data():
     return [data1, data2,  data3]
 
 if __name__ == "__main__":
-    print(load_json_data()[2])
-    # print(split_lecture_details())
+    # print(load_json_data()[2])
+    print(split_lecture_details()[2])
     # check_related_rp_names()
     # check_related_rp_subdirectories()
     # chck_right_lect_dirtry()

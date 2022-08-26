@@ -8,10 +8,10 @@ from pathlib import Path
 class Rp_folders:
 	
 	#---------------------methos to generate all rp folder list-----------------------------#
-	def return_rps_folder_list(self, dirpath):
+	def return_rps_folder_list(self, path):
 
 		# self.path = input('input the directory to return all rp folders_list: ')
-		self.path = dirpath
+		self.path = path
 		rps_folders = list()
 		
 		#print subdirectories only

@@ -85,7 +85,11 @@
         "Mallam Abubakar Musa (Keffi)",
         "Mallam Abdurrahman Aliyu Jahun",
         "Mallam Muhammad Usman Yero (Keffi)",
-        "Mallam Abubakar Nuhu (Keffi)"
+        "Mallam Abubakar Nuhu (Keffi)",
+        "Malam Muhammad Sagir Adamu",
+        "Malam Muhammad Rabi'u Bubuche",
+        "Malam Abubakar Sulaiman Al Fullaty",
+        "Malaam Abubakar Rabi'u Beji"
     ],
     "Dr": [
         "Dr Muhammad Kabiru Haruna (Gombe)",
@@ -473,16 +477,8 @@
     "audiobooks": [
         "audiobooks"
     ],
-    "Malam": [
-        "Malam Muhammad Sagir Adamu",
-        "Malam Muhammad Rabi'u Bubuche",
-        "Malam Abubakar Sulaiman Al Fullaty"
-    ],
     "Mallam-Sulaymaan-Ahmad-Tijani": [
         "Mallam-Sulaymaan-Ahmad-Tijani"
-    ],
-    "Malaam": [
-        "Malaam Abubakar Rabi'u Beji"
     ],
     "Prof.": [
         "Prof. Abdur-Razzaaq Alaro (Ilorin)"
