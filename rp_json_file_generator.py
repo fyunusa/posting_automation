@@ -29,7 +29,7 @@ class Rp_folders:
 		rps_folders = self.return_rps_folder_list()
 		print(rps_folders)
 		print()
-		full_list = []
+		full_list = dict()
 		rps_dict = dict()
 
 		path = self.path
@@ -39,7 +39,7 @@ class Rp_folders:
 			full_rps_path = names
 			cleaned_part2 = names.split("/")
 			#print(full_rps_path)
-			print()
+			# print()
 			rps_list = list()
 			#rps_dict = dict()
 
@@ -69,9 +69,32 @@ class Rp_folders:
 		jsonFile = open('{0}_rp_folders.json'.format(dir_name_split[4]), 'w')
 		jsonFile.write(json_object)
 		jsonFile.close()
+	
+	def group_rps(
+		self,
+		rp_json_data : str
+	) -> dict():
+
+		rp_file = open(rp_json_data)
+		# returns JSON object as a dictionary
+		data = json.load(rp_file)
+		# all_keys = data.keys()
+		extrct_rp_grp = {itm.split("/")[0].split(" ")[0]:[] for itm in data.keys()}
+		print(extrct_rp_grp['Mallam'])
+		for itm in data.keys():
+			extrct_rp_grp[itm.split("/")[0].split(" ")[0]].append(itm) 
+		
+		json_object = json.dumps(extrct_rp_grp, indent=4)
+		jsonFile = open('json_files/{0}_grouped_rps_.json'.format('dnlectures2'), 'w')
+		jsonFile.write(json_object)
+		jsonFile.close()
+		
+		return extrct_rp_grp
+
 
 
 if __name__ == "__main__":
 	caller = Rp_folders()
-	#caller.return_all_rps_subdirectories()
-	caller.convert_folders_to_json()
+	# caller.return_all_rps_subdirectories()
+	# caller.convert_folders_to_json()
+	print(caller.group_rps('json_files/dnlectures2_rp_folders.json'))
