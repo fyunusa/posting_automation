@@ -27,21 +27,14 @@ class Rp_folders:
 
 		# Get the list home directory
 		rps_folders = self.return_rps_folder_list()
-		print(rps_folders)
-		print()
 		full_list = dict()
 		rps_dict = dict()
-
 		path = self.path
-
 		#---------loop through the rps folders list generated earlier------------#
 		for names in rps_folders:
 			full_rps_path = names
 			cleaned_part2 = names.split("/")
-			#print(full_rps_path)
-			# print()
 			rps_list = list()
-			#rps_dict = dict()
 
 			#loop through path & print subdirectories only
 			for path2 in Path(full_rps_path).iterdir():
@@ -69,7 +62,8 @@ class Rp_folders:
 		jsonFile = open('{0}_rp_folders.json'.format(dir_name_split[4]), 'w')
 		jsonFile.write(json_object)
 		jsonFile.close()
-	
+
+	#-------#----------#----------#---------#---------#
 	def group_rps(
 		self,
 		rp_json_data : str
@@ -78,9 +72,7 @@ class Rp_folders:
 		rp_file = open(rp_json_data)
 		# returns JSON object as a dictionary
 		data = json.load(rp_file)
-		# all_keys = data.keys()
 		extrct_rp_grp = {itm.split("/")[0].split(" ")[0]:[] for itm in data.keys()}
-		print(extrct_rp_grp['Mallam'])
 		for itm in data.keys():
 			extrct_rp_grp[itm.split("/")[0].split(" ")[0]].append(itm) 
 		
@@ -90,11 +82,33 @@ class Rp_folders:
 		jsonFile.close()
 		
 		return extrct_rp_grp
+	
+	def rps_and_subdirs(self, rps_data: list):
+
+		# init_rps_dict = {rps.split("/")[-1]:{} for rps in rps_data}
+		walked_data = dict()
+		# for rps in Path(rps_data).iterdir():
+		# 	if rps.is_dir():
+		# 		full_sub_path = rps+''
+		# 		new_rps_data[rps] = {}
+		# 		self.rps_and_subdirs(rps_data)
+		for rp_dir in rps_data:
+			for root, subdirs, files in os.walk(rp_dir):
+				# walked_data[root] = {subdirs:""}
+				print(dict(subdirs))
+				
 
 
+		# scrape_rps_dict = {rps_dir.split("/")[-1]:{dir.as_posix().split("/")[6]} for rps_dir in rps_data for dir in Path(rps_dir).iterdir() if dir.is_dir() }
+
+
+
+
+# /Users/Umarvee/Documents/DN/posting_automation/rp_json_file_generator.py
 
 if __name__ == "__main__":
 	caller = Rp_folders()
 	# caller.return_all_rps_subdirectories()
 	# caller.convert_folders_to_json()
-	print(caller.group_rps('json_files/dnlectures2_rp_folders.json'))
+	# print(caller.group_rps('json_files/dnlectures2_rp_folders.json'))
+	caller.rps_and_subdirs(['/Users/Umarvee/Documents/DN/posting_automation/'])
