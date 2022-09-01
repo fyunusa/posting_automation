@@ -87,7 +87,12 @@ class Rp_folders:
 
 	walked_dir = dict()
 	gruped_dir = dict()
-	def rps_and_subdirs(self, rp_path: str, rp_cont: dict, file_name: str = None):
+	def rps_and_subdirs(
+		self, 
+		rp_path: str, 
+		rp_cont: dict, 
+		file_name: str = None
+	) -> None:
 		
 		self.walked_dir[rp_path] = rp_cont
 		for itm in os.listdir(rp_path):
