@@ -1,8 +1,10 @@
 # import OS module
 import os
+from pickle import TRUE
 import shutil
 import json
 from pathlib import Path
+from xmlrpc.client import Boolean
 
 
 class Rp_folders:
@@ -82,33 +84,34 @@ class Rp_folders:
 		jsonFile.close()
 		
 		return extrct_rp_grp
-	
-	def rps_and_subdirs(self, rps_data: list):
 
-		# init_rps_dict = {rps.split("/")[-1]:{} for rps in rps_data}
-		walked_data = dict()
-		# for rps in Path(rps_data).iterdir():
-		# 	if rps.is_dir():
-		# 		full_sub_path = rps+''
-		# 		new_rps_data[rps] = {}
-		# 		self.rps_and_subdirs(rps_data)
-		for rp_dir in rps_data:
-			for root, subdirs, files in os.walk(rp_dir):
-				# walked_data[root] = {subdirs:""}
-				print(dict(subdirs))
+	walked_dir = dict()
+	gruped_dir = dict()
+	def rps_and_subdirs(self, rp_path: str, rp_cont: dict, file_name: str = None):
+		
+		self.walked_dir[rp_path] = rp_cont
+		for itm in os.listdir(rp_path):
+			if os.path.isdir(os.path.join(rp_path,itm)):
+				
+				self.walked_dir[rp_path][itm] = {}				
+				self.rps_and_subdirs(os.path.join(rp_path,itm), self.walked_dir[rp_path][itm])
+			
+		self.gruped_dir[next(iter(self.walked_dir))] = self.walked_dir[next(iter(self.walked_dir))]
+
+		if file_name is not None:
+			json_object = json.dumps(self.gruped_dir, indent=4)
+			jsonFile = open('{0}_grped_rp_subdir_tree.json'.format(file_name), 'w')
+			jsonFile.write(json_object)
+			jsonFile.close()
 				
 
-
-		# scrape_rps_dict = {rps_dir.split("/")[-1]:{dir.as_posix().split("/")[6]} for rps_dir in rps_data for dir in Path(rps_dir).iterdir() if dir.is_dir() }
-
-
-
-
-# /Users/Umarvee/Documents/DN/posting_automation/rp_json_file_generator.py
 
 if __name__ == "__main__":
 	caller = Rp_folders()
 	# caller.return_all_rps_subdirectories()
 	# caller.convert_folders_to_json()
 	# print(caller.group_rps('json_files/dnlectures2_rp_folders.json'))
-	caller.rps_and_subdirs(['/Users/Umarvee/Documents/DN/posting_automation/'])
+	# root_path = "/Users/Umarvee/Documents/DN/posting_automation/"
+	root_path = input("input the path to generate Tree directory for: ")
+	file_name = input("input the name you want generated file to have format => [name]_grped_rp_subdir_tree.json: \n")
+	caller.rps_and_subdirs(root_path,{},file_name)
